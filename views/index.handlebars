@@ -1,0 +1,29 @@
+<img class="burger-img" src="/assets/img/burger.png"/>
+
+<h1>Eat-Da-Burger!</h1>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burger-block}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+  	<li>
+       <p>{{this.id}}: {{this.burger_name}}</p>
+  	</li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<div>
+  <form action="/" method="POST">
+  	<textarea type="text" name="burger-input"></textarea>
+
+  	<button type="submit">Submit</button>
+  </form>
+</div>
