@@ -22,6 +22,16 @@ function objToSql(ob) {
     return arr.toString();
   }
 
+  function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+
 let orm = {
     selectAll: function (tableInput, callback) {
         var queryString = "SELECT * FROM " + tableInput + ";";

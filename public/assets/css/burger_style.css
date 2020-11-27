@@ -1,3 +1,21 @@
+body {
+    background-color: rgb(255, 187, 97) !important;
+}
+
 .burger-img {
-    max-width: 500px;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.burger-textarea {
+    width:100%;
 }

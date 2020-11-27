@@ -1,8 +1,8 @@
-let express = require("express");
+const express = require("express");
 
-let router = express.Router();
+const router = express.Router();
 
-let burger = require("../models/burger.js");
+const burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
     burger.all(function(data) {
@@ -15,20 +15,23 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  cat.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function(result) {
+
+console.log('You sent, ' + req.body.burger_name);
+burger.create(["burger_name"], [req.body.burger_name], function(result) {
     // Send back the ID of the new quote
-    res.json({ id: result.insertId });
+    res.redirect("/");
   });
+
 });
 
-router.put("/api/cats/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
-  cat.update(
+  burger.update(
     {
-      sleepy: req.body.sleepy
+      devoured: req.body.devoured
     },
     condition,
     function(result) {

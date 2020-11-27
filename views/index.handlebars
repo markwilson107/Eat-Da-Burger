@@ -1,29 +1,43 @@
-<img class="burger-img" src="/assets/img/burger.png"/>
+<div class="container">
+  <div class="row justify-content-center">
+    <img class="burger-img" src="/assets/img/burger.png" />
 
-<h1>Eat-Da-Burger!</h1>
+  </div>
+  <div class="row justify-content-center">
+    <h1>Eat-Da-Burger!</h1>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burger-block}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-12 col-lg-6">
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li>
+          {{> burger-block-devoured}}
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <form action="/api/burgers" method="POST" action="/#">
+        <div class="form-group ">
+          <textarea type="text" name="burger_name" class="form-control"></textarea>
+          <br />
+          <button class="btn btn-light" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burger-block}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-  	<li>
-       <p>{{this.id}}: {{this.burger_name}}</p>
-  	</li>
-    {{/if}}
-  {{/each}}
-</ul>
-
-<div>
-  <form action="/" method="POST">
-  	<textarea type="text" name="burger-input"></textarea>
-
-  	<button type="submit">Submit</button>
-  </form>
 </div>
